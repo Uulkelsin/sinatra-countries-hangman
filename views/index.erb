@@ -6,7 +6,32 @@
 </head>
 <body>
 
-  <p><%= message %></p>
+  <h1>Hangman</h1>
+
+  <p>Guesses left: <%= guesses_left %></p>
+
+  <p><%= hidden_word %></p>
+
+  <% unless game_finished %>
+    <p>Try to guess the word.</p>
+  <% end %>
+
+  <% case game_result %>
+  <% when :player_wins %>
+    <p>Correct!</p>
+  <% when :player_loses %>
+    <p>The word was: <%= secret_word %></p>
+  <% end %>
+
+  <% unless game_finished %>
+    <form>
+      <input type="text" name="guess" autofocus>
+    </form>
+  <% else %>
+    <form>
+      <input type="submit" name="restart" value="Next word!" autofocus>
+    </form>
+  <% end %>
 
 </body>
 </html>
