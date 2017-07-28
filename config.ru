@@ -1,3 +1,3 @@
-require "/.hangman"
+require "./app"
 
 run Sinatra::Application
