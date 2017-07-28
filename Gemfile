@@ -2,4 +2,6 @@ source "http://rubygems.org"
 
 ruby "2.3.1"
 
-require "sinatra"
+gem "puma"
+gem "sinatra"
+gem "sinatra-contrib"
