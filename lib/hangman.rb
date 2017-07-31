@@ -22,7 +22,7 @@ class Hangman
       player_wins  if secret_word_is_equal_to?(@hidden_word.join)
       player_loses if @guesses_left.zero?
     else
-      add_wrong_characters_from(guess)
+      add_wrong_characters_from(guess[0])
       @guesses_left -= 1
       player_loses if @guesses_left.zero?
     end
@@ -55,8 +55,12 @@ class Hangman
   end
 
   def add_wrong_characters_from(guess)
-    @wrong_characters = [] if @guesses_left == @secret_word.length
+    @wrong_characters = [] if wrong_characters_unmodified
     @wrong_characters << guess unless @wrong_characters.include?(guess)
+  end
+
+  def wrong_characters_unmodified
+    @wrong_characters == ["-"]
   end
 
   def player_wins

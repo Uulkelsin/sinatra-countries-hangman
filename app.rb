@@ -19,7 +19,7 @@ get "/" do
 
   secret_word      = settings.hangman.secret_word.join
   hidden_word      = settings.hangman.hidden_word.join(" ")
-  wrong_characters = settings.hangman.wrong_characters
+  wrong_characters = settings.hangman.wrong_characters.join(" ")
   guesses_left     = settings.hangman.guesses_left
   game_finished    = settings.hangman.game_finished
   game_result      = settings.hangman.game_result
