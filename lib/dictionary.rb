@@ -14,7 +14,7 @@ class Dictionary
   private
 
   def prepare_dictionary(filename)
-    @dictionary = File.read(filename).gsub(/\r\n/, " ").split
+    @dictionary = File.read(filename).gsub(/\n/, "  ").split("  ")
     @dictionary = @dictionary.select { |word| (4..13).cover?(word.length) }
   end
 end
