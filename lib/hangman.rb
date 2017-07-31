@@ -8,7 +8,7 @@ class Hangman
     @secret_word      = "potato".split("")
     @hidden_word      = @secret_word.map { |letter| "_" if letter }
     @wrong_characters = ["-"]
-    @guesses_left     = @secret_word.length + 1
+    @guesses_left     = @secret_word.uniq.length + 1
     @game_finished    = false
     @game_result      = nil
   end
