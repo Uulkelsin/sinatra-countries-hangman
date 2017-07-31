@@ -21,10 +21,9 @@
     <p>Introduce a letter or the complete word:</p>
   <% end %>
 
-  <% case game_result %>
-  <% when :player_wins %>
+  <% if game_result == :player_wins %>
     <p>Correct!</p>
-  <% when :player_loses %>
+  <% elsif game_result == :player_loses %>
     <p>The word was: <%= secret_word %></p>
   <% end %>
 
