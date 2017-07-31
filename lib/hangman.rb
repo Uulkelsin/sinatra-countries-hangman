@@ -22,7 +22,6 @@ class Hangman
       player_loses if @guesses_left.zero?
     else
       add_wrong_characters_from(guess[0])
-      @guesses_left -= 1
       player_loses if @guesses_left.zero?
     end
   end
@@ -55,7 +54,11 @@ class Hangman
 
   def add_wrong_characters_from(guess)
     @wrong_characters = [] if wrong_characters_unmodified
-    @wrong_characters << guess unless @wrong_characters.include?(guess)
+
+    return if @wrong_characters.include?(guess)
+
+    @wrong_characters << guess
+    @guesses_left -= 1
   end
 
   def wrong_characters_unmodified
