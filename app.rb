@@ -4,13 +4,16 @@ require "sinatra/reloader" if development?
 require "./lib/hangman"
 require "./lib/dictionary"
 
-set :hangman, Hangman.new
+configure do
+  @@dictionary = Dictionary.new("./lib/dictionary.txt")
+  set :hangman, Hangman.new(@@dictionary)
+end
 
 get "/" do
   guess   = params["guess"] || ""
   restart = params["restart"]
 
-  settings.hangman = Hangman.new if restart
+  settings.hangman = Hangman.new(@@dictionary) if restart
 
   settings.hangman.check(guess)
 

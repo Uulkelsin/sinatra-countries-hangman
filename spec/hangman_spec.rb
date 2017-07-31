@@ -1,7 +1,8 @@
 require "./lib/dictionary"
 
 describe Hangman do
-  let(:hangman)          { described_class.new }
+  let(:dictionary)       { Dictionary.new("./lib/dictionary.txt") }
+  let(:hangman)          { described_class.new(dictionary) }
   let(:secret_word)      { hangman.secret_word }
   let(:hidden_word)      { hangman.hidden_word }
   let(:wrong_characters) { hangman.wrong_characters }
