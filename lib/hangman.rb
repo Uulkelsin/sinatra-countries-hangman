@@ -5,7 +5,8 @@ class Hangman
   attr_reader :game_finished, :game_result
 
   def initialize
-    @secret_word      = "potato".split("")
+    @dictionary       = Dictionary.new("./lib/dictionary.txt")
+    @secret_word      = @dictionary.sample
     @hidden_word      = @secret_word.map { |letter| "_" if letter }
     @wrong_characters = ["-"]
     @guesses_left     = @secret_word.uniq.length + 1

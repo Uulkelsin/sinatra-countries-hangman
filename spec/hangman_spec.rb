@@ -1,3 +1,5 @@
+require "./lib/dictionary"
+
 describe Hangman do
   let(:hangman)          { described_class.new }
   let(:secret_word)      { hangman.secret_word }

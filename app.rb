@@ -2,6 +2,7 @@ require "sinatra"
 require "sinatra/reloader" if development?
 
 require "./lib/hangman"
+require "./lib/dictionary"
 
 set :hangman, Hangman.new
 
