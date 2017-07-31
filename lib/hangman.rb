@@ -29,7 +29,7 @@ class Hangman
   private
 
   def is_a_word?(guess)
-    guess.length == @secret_word.length
+    guess.length > 3
   end
 
   def check_introduced(guess)
