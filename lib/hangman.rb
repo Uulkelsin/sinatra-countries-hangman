@@ -6,7 +6,7 @@ class Hangman
 
   def initialize(dictionary)
     @secret_word      = dictionary.sample
-    @hidden_word      = @secret_word.map { |letter| "_" if letter }
+    @hidden_word      = @secret_word.map { |char| char == " " ? char : "_" }
     @wrong_characters = ["-"]
     @guesses_left     = @secret_word.uniq.length + 1
     @game_finished    = false
