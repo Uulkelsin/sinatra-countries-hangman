@@ -18,7 +18,6 @@ class Hangman
       check_introduced(guess)
     elsif character_is_in_secret_word?(guess)
       add_characters_from(guess)
-      @guesses_left -= 1
       player_wins  if secret_word_is_equal_to?(@hidden_word.join)
       player_loses if @guesses_left.zero?
     else
