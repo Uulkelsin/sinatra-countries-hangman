@@ -4,4 +4,5 @@ Simple Hangman reimplementation using Sinatra for [The Odin Project](https://www
 
 ## TO-DO
 
+- Add sessions.
 - Print hidden word with spaces.
