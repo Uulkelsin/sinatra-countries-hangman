@@ -8,38 +8,38 @@
 
   <h1>Countries Hangman</h1>
 
-  <p>Guesses left: <%= guesses_left %></p>
-  <p>Wrong letters: <%= wrong_characters %></p>
+  <p>Guesses left: <%= @guesses_left %></p>
+  <p>Wrong letters: <%= @wrong_characters %></p>
 
   <br>
 
-  <% if game_result == :player_wins %>
+  <% if @game_result == :player_wins %>
     <p>
-      <a href="https://en.wikipedia.org/wiki/<%= secret_word %>" target="_blank">
-        <%= hidden_word %>
+      <a href="https://en.wikipedia.org/wiki/<%= @secret_word %>" target="_blank">
+        <%= @hidden_word %>
       </a>
     </p>
   <% else %>
-    <p><%= hidden_word %></p>
+    <p><%= @hidden_word %></p>
   <% end %>
 
   <br>
 
-  <% unless game_finished %>
+  <% unless @game_finished %>
     <p>Introduce a letter or the complete country name:</p>
   <% end %>
 
-  <% if game_result == :player_wins %>
+  <% if @game_result == :player_wins %>
     <p>Correct!</p>
-  <% elsif game_result == :player_loses %>
+  <% elsif @game_result == :player_loses %>
     <p>The country was:
-      <a href="https://en.wikipedia.org/wiki/<%= secret_word %>" targer="_blank">
-        <%= secret_word %>
+      <a href="https://en.wikipedia.org/wiki/<%= @secret_word %>" targer="_blank">
+        <%= @secret_word %>
       </a>
     </p>
   <% end %>
 
-  <% unless game_finished %>
+  <% unless @game_finished %>
     <form>
       <input type="text" name="guess" autofocus>
     </form>
