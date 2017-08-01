@@ -15,6 +15,10 @@ class Dictionary
 
   def prepare_dictionary(filename)
     @dictionary = File.read(filename).gsub(/\n/, "  ").split("  ")
-    @dictionary = @dictionary.select { |word| (4..13).include?(word.length) }
+    @dictionary = @dictionary.select { |word| maximum_characters?(word.length) }
+  end
+
+  def maximum_characters?(word_length)
+    (4..13).include?(word_length)
   end
 end
