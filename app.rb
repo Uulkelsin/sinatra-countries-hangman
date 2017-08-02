@@ -13,13 +13,18 @@ get "/" do
   guess   = params["guess"] || ""
   restart = params["restart"]
 
-  settings.hangman = Hangman.new(@@dictionary) if restart
+  redirect "/restart" if restart
 
   settings.hangman.check(guess)
 
   set_state
 
   erb :index
+end
+
+get "/restart" do
+  settings.hangman = Hangman.new(@@dictionary)
+  redirect "/"
 end
 
 helpers do
